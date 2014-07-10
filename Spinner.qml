@@ -15,14 +15,14 @@ Rectangle {
             id: list
             anchors.fill: parent
             highlightRangeMode: ListView.StrictlyEnforceRange
-            preferredHighlightBegin: height/3
-            preferredHighlightEnd: height/3
+            preferredHighlightBegin: height / 3
+            preferredHighlightEnd: height / 3
             clip: true
             model: max
             delegate: Text {
-                font.pixelSize: 18;
-                color: "white";
-                text: index;
+                font.pixelSize: 18
+                color: "white"
+                text: String(index).length == 1 ? "0" + index : index
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 

@@ -1,6 +1,5 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.1
-import QtQuick.Layouts 1.1
 
 ApplicationWindow {
     id : mainWindow
@@ -15,26 +14,9 @@ ApplicationWindow {
 
         Timer {
             interval: 500; running: true; repeat: true
-
-            onTriggered: {
-                var date = new Date();
-                hour.value = date.getHours()
-                minute.value = date.getMinutes()
-                second.value = date.getSeconds()
-            }
+            onTriggered: digitClock.date = new Date;
         }
 
-        Item {
-            scale: 5
-            antialiasing: true
-
-            RowLayout {
-                spacing: 2
-
-                Spinner { id : hour; max: 24 }
-                Spinner { id : minute; max: 60 }
-                Spinner { id : second; max: 60 }
-            }
-        }
+        DigitClock { id : digitClock }
     }
 }
